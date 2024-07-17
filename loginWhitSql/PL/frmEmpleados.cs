@@ -16,5 +16,10 @@ namespace loginWhitSql.PL_presentacion__
         {
             InitializeComponent();
         }
+
+        private void frmEmpleados_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

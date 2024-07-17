@@ -46,22 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\departamentoBLL.cs" />
+    <Compile Include="BLL\empleadosBLL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL%28presentacion %29\frmDepartamentos.cs">
+    <Compile Include="PL\frmDepartamentos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL%28presentacion %29\frmDepartamentos.Designer.cs">
+    <Compile Include="PL\frmDepartamentos.Designer.cs">
       <DependentUpon>frmDepartamentos.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL%28presentacion %29\frmEmpleados.cs">
+    <Compile Include="PL\frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL%28presentacion %29\frmEmpleados.Designer.cs">
+    <Compile Include="PL\frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -69,10 +71,10 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL%28presentacion %29\frmDepartamentos.resx">
+    <EmbeddedResource Include="PL\frmDepartamentos.resx">
       <DependentUpon>frmDepartamentos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL%28presentacion %29\frmEmpleados.resx">
+    <EmbeddedResource Include="PL\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -98,7 +100,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BLL%28logica%29\" />
     <Folder Include="DAL%28acceso a datos%29\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

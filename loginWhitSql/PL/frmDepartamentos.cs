@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using loginWhitSql.BLL_logica_; 
 
 namespace loginWhitSql.PL_presentacion__
 {
@@ -21,5 +22,12 @@ namespace loginWhitSql.PL_presentacion__
         {
 
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }
