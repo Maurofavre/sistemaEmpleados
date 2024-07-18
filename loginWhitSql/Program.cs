@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using loginWhitSql.PL_presentacion__; 
+
 
 namespace loginWhitSql
 {
@@ -16,7 +18,7 @@ namespace loginWhitSql
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmDepartamentos());
         }
     }
 }
