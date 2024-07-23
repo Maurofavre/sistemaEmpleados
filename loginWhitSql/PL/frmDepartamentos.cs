@@ -8,14 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using loginWhitSql.BLL_logica_;
-using loginWhitSql.DAL_acceso_a_datos_; 
+using loginWhitSql.DAL_acceso_a_datos_;
+
+
 
 namespace loginWhitSql.PL_presentacion__
 {
     public partial class frmDepartamentos : Form
     {
+
+        //creamos objeto
+        DepartamentosDLL oDepartamentosDLL;
+
+
+         
+
         public frmDepartamentos()
         {
+
+            oDepartamentosDLL = new DepartamentosDLL();
             InitializeComponent();
         }
 
@@ -26,11 +37,15 @@ namespace loginWhitSql.PL_presentacion__
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            //Obetener ifnormacion del frm
             recuperarInfo(); 
+  
+            //conexion.pruebaConexion: Llama al método pruebaConexion con una consulta SQL
+            //para insertar un nuevo registro en la tabla departamentos.
+            MessageBox.Show("Conectado... ");
 
-            conexionDal conexion = new conexionDal();
 
-            MessageBox.Show("Conectado... " + conexion.pruebaConexion()); 
+            oDepartamentosDLL.Agregar();
 
         }
         //crear un obejetro apartir de la clase bll , y obtener los valores del form 

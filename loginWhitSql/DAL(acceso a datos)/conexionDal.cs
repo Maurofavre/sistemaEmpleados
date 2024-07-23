@@ -9,22 +9,45 @@ using System.Data;
 
 namespace loginWhitSql.DAL_acceso_a_datos_
 {
-     class conexionDal
+    class conexionDal
     {
-        //preba si entra la conexion 
-        public bool pruebaConexion()
+        // cadena de mysql para conectarse
+        private string CadenaConexion = "Server=localhost;Port=3306;Database=dbsistema;User Id=root;Password=;";
+
+        //crea un objeto para manejar la conexión a la base de datos.
+        MySqlConnection conexion;
+
+
+
+        //Inicializa el objeto de conexión (conexion) 
+        //usando la cadena de conexión (CadenaConexion) y lo retorna.
+        public MySqlConnection EstablecerConexion() {
+
+            //ya lo tenes declarado al objeto asique ponemos This
+            //crear una conexion con sql conexion
+            //asiganmos la instancia al objeto
+
+            this.conexion = new MySqlConnection(this.CadenaConexion);
+
+            return this.conexion;
+
+        }
+
+
+
+
+        //Metodo INSERT, DELET, UPDATE
+        public bool ejecutarComandosSinRetornos ( string strComando )
         {
             try
             {
-                // Armar la conexión 
-                MySqlConnection conexion = new MySqlConnection("Server=localhost;Port=3306;Database=dbsistema;User Id=root;Password=;");
 
                 // Comando para poder hacer consultas 
-                MySqlCommand comando = new MySqlCommand
-                {
-                    CommandText = "SELECT * FROM empleados",
-                    Connection = conexion
-                };
+                MySqlCommand comando = new MySqlCommand();
+
+                comando.CommandText = strComando; 
+                comando.Connection = this.EstablecerConexion(); 
+                
 
                 conexion.Open();
                 comando.ExecuteNonQuery();
@@ -38,6 +61,8 @@ namespace loginWhitSql.DAL_acceso_a_datos_
             }
 
         }
+
+        //Retornos de datos SELECT
 
     }
 
