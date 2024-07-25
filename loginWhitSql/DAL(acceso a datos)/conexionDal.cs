@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-
+using System.Data.SqlClient;
 
 namespace loginWhitSql.DAL_acceso_a_datos_
 {
@@ -63,6 +63,32 @@ namespace loginWhitSql.DAL_acceso_a_datos_
         }
 
         //Retornos de datos SELECT
+        public DataSet EjecutarSentencia(MySqlCommand mySqlComando)
+        {
+            //Ver que significa cada uno 
+            DataSet ds = new DataSet();
+            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+            try
+            {
+                MySqlCommand Comando = new MySqlCommand();
+                Comando = mySqlComando;
+                Comando.Connection = EstablecerConexion();
+                Adaptador.SelectCommand = Comando;
+                conexion.Open();
+                Adaptador.Fill(ds);
+                conexion.Close();
+
+                return ds;
+            }
+            catch 
+            {
+                return ds;
+                
+            }
+
+
+        }
 
     }
 

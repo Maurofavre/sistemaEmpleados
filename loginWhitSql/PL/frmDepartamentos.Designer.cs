@@ -43,7 +43,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 22);
+            this.label1.Location = new System.Drawing.Point(25, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 0;
@@ -53,7 +53,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(201, 22);
+            this.label2.Location = new System.Drawing.Point(172, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 1;
@@ -61,70 +61,81 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(38, 38);
+            this.txtId.Location = new System.Drawing.Point(28, 38);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 2;
             // 
             // txtDepartamento
             // 
-            this.txtDepartamento.Location = new System.Drawing.Point(204, 38);
+            this.txtDepartamento.Location = new System.Drawing.Point(175, 38);
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(238, 20);
             this.txtDepartamento.TabIndex = 3;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(38, 78);
+            this.btnAgregar.Image = global::loginWhitSql.Properties.Resources._285657_floppy_guardar_save_icon__1_;
+            this.btnAgregar.Location = new System.Drawing.Point(28, 78);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(80, 33);
             this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(164, 78);
+            this.btnModificar.Image = global::loginWhitSql.Properties.Resources._285638_pencil_icon__1_;
+            this.btnModificar.Location = new System.Drawing.Point(147, 78);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.Size = new System.Drawing.Size(82, 33);
             this.btnModificar.TabIndex = 5;
             this.btnModificar.Text = "Modificar";
+            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnBorrar
             // 
             this.btnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBorrar.Location = new System.Drawing.Point(258, 78);
+            this.btnBorrar.Image = global::loginWhitSql.Properties.Resources._299045_sign_error_icon__1___1_;
+            this.btnBorrar.Location = new System.Drawing.Point(256, 78);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrar.Size = new System.Drawing.Size(75, 33);
             this.btnBorrar.TabIndex = 6;
             this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // BtnCancelar
             // 
             this.BtnCancelar.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.BtnCancelar.Location = new System.Drawing.Point(367, 78);
+            this.BtnCancelar.Image = global::loginWhitSql.Properties.Resources._285688_file_empty_icon__1_;
+            this.BtnCancelar.Location = new System.Drawing.Point(354, 78);
             this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.BtnCancelar.Size = new System.Drawing.Size(84, 33);
             this.BtnCancelar.TabIndex = 7;
             this.BtnCancelar.Text = "Cancelar ";
+            this.BtnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnCancelar.UseVisualStyleBackColor = true;
             // 
             // dgvDepartamento
             // 
             this.dgvDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepartamento.Location = new System.Drawing.Point(38, 138);
+            this.dgvDepartamento.Location = new System.Drawing.Point(61, 138);
             this.dgvDepartamento.Name = "dgvDepartamento";
-            this.dgvDepartamento.Size = new System.Drawing.Size(404, 205);
+            this.dgvDepartamento.Size = new System.Drawing.Size(307, 205);
             this.dgvDepartamento.TabIndex = 8;
+            this.dgvDepartamento.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Seleccionar);
             // 
             // frmDepartamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 355);
+            this.ClientSize = new System.Drawing.Size(467, 355);
             this.Controls.Add(this.dgvDepartamento);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.btnBorrar);
