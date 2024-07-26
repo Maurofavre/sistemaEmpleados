@@ -24,8 +24,16 @@ namespace loginWhitSql.DAL_acceso_a_datos_
 
         {
             //"+odepartamentoBLL.Departamento+" asi se llama a las partes del objeto
-            return conexion.ejecutarComandosSinRetornos("INSERT INTO departamentos (departamento) VALUES('"+odepartamentoBLL.Departamento+"');");
+            string query = "INSERT INTO departamentos (departamento) VALUES (@departamento)";
 
+            // Crear y configurar el comando MySql
+            MySqlCommand SqlComando = new MySqlCommand(query);
+
+            // Añadir el valor del objeto oDepartamentoBLL
+            SqlComando.Parameters.Add("@departamento", MySqlDbType.VarChar).Value = odepartamentoBLL.Departamento;
+
+            // Ejecutar el comando y devolver el resultado
+            return conexion.ejecutarComandosSinRetornos(SqlComando);
         }
         //traer todo de la tabla de departamentos 
         public DataSet MostrarDepartamentos()

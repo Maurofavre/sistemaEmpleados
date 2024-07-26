@@ -37,7 +37,7 @@ namespace loginWhitSql.DAL_acceso_a_datos_
 
 
         //Metodo INSERT, DELET, UPDATE
-        public bool ejecutarComandosSinRetornos ( string strComando )
+        public bool ejecutarComandosSinRetornos(string strComando)
         {
             try
             {
@@ -45,9 +45,9 @@ namespace loginWhitSql.DAL_acceso_a_datos_
                 // Comando para poder hacer consultas 
                 MySqlCommand comando = new MySqlCommand();
 
-                comando.CommandText = strComando; 
-                comando.Connection = this.EstablecerConexion(); 
-                
+                comando.CommandText = strComando;
+                comando.Connection = this.EstablecerConexion();
+
 
                 conexion.Open();
                 comando.ExecuteNonQuery();
@@ -61,6 +61,35 @@ namespace loginWhitSql.DAL_acceso_a_datos_
             }
 
         }
+
+        //sobreCarga para pasarle argumento diferente 
+
+        public bool ejecutarComandosSinRetornos(MySqlCommand SqlComando)
+        {
+            try
+            {
+
+                // Comando para poder hacer consultas 
+                MySqlCommand comando = SqlComando;
+
+                
+                comando.Connection = this.EstablecerConexion();
+
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+                conexion.Close();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+
 
         //Retornos de datos SELECT
         public DataSet EjecutarSentencia(MySqlCommand mySqlComando)
