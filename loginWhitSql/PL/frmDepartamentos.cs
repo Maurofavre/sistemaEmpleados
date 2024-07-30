@@ -25,6 +25,8 @@ namespace loginWhitSql.PL_presentacion__
             InitializeComponent();
             //Llenar la tabla con los datos de la bd 
             LlenarGrid();
+
+            LimpiarEntradas();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,9 +37,12 @@ namespace loginWhitSql.PL_presentacion__
         private void btnAgregar_Click(object sender, EventArgs e)
         {
            
-            MessageBox.Show("Conectado... ");
+            MessageBox.Show("Agregado correctamente...");
             //traemos recuperarInfo para llevar la informacion al metodo agregar de la base logica departamento 
-            oDepartamentosDLL.Agregar(recuperarInfo() );
+            oDepartamentosDLL.Agregar(recuperarInfo());
+            LlenarGrid();
+            LimpiarEntradas();
+
 
         }
         //crear un obejeto apartir de la clase bll , y obtener los valores del form 
@@ -61,13 +66,31 @@ namespace loginWhitSql.PL_presentacion__
             //e.RowIndex se usa para obtener el índice de la fila en la que ocurrió el evento,
             int indice = e.RowIndex;
 
-            txtId.Text = dgvDepartamento.Rows[indice].Cells[0].Value.ToString();
-            txtDepartamento.Text = dgvDepartamento.Rows[indice].Cells[1].Value.ToString();
+
+            dgvDepartamento.ClearSelection();
+            //para que no provoque error a la hora de seleccionar los bordes
+            if (indice >= 0)
+            {
+                txtId.Text = dgvDepartamento.Rows[indice].Cells[0].Value.ToString();
+                txtDepartamento.Text = dgvDepartamento.Rows[indice].Cells[1].Value.ToString();
+
+                btnAgregar.Enabled = false;
+                btnBorrar.Enabled = true;
+                btnModificar.Enabled = true;
+                BtnCancelar.Enabled = true;
+
+            }
+
+
+
         }
 
         public void LlenarGrid()
         {
             dgvDepartamento.DataSource = oDepartamentosDLL.MostrarDepartamentos().Tables[0];
+
+            dgvDepartamento.Columns[0].HeaderText = "Id";
+            dgvDepartamento.Columns[1].HeaderText = "Nombre Departamento";
 
         }
 
@@ -75,14 +98,34 @@ namespace loginWhitSql.PL_presentacion__
         {
             oDepartamentosDLL.Eliminar(recuperarInfo());
             LlenarGrid();
+            LimpiarEntradas();
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             oDepartamentosDLL.Modificar(recuperarInfo());
             LlenarGrid();
+            LimpiarEntradas();
+
         }
 
-        
+        public void LimpiarEntradas()
+        {
+            txtId.Text = "";
+            txtDepartamento.Text = ""; 
+
+
+            btnAgregar.Enabled = true;
+            btnBorrar.Enabled = false;
+            btnModificar.Enabled = false;   
+            BtnCancelar.Enabled = false;    
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarEntradas();  
+
+        }
     }
 }

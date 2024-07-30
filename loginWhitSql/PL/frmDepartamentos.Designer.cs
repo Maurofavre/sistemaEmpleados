@@ -63,6 +63,7 @@
             // 
             this.txtId.Location = new System.Drawing.Point(28, 38);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 2;
             // 
@@ -87,6 +88,7 @@
             // 
             // btnModificar
             // 
+            this.btnModificar.Enabled = false;
             this.btnModificar.Image = global::loginWhitSql.Properties.Resources._285638_pencil_icon__1_;
             this.btnModificar.Location = new System.Drawing.Point(147, 78);
             this.btnModificar.Name = "btnModificar";
@@ -121,13 +123,16 @@
             this.BtnCancelar.Text = "Cancelar ";
             this.BtnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // dgvDepartamento
             // 
+            this.dgvDepartamento.AllowUserToAddRows = false;
+            this.dgvDepartamento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepartamento.Location = new System.Drawing.Point(61, 138);
+            this.dgvDepartamento.Location = new System.Drawing.Point(28, 138);
             this.dgvDepartamento.Name = "dgvDepartamento";
-            this.dgvDepartamento.Size = new System.Drawing.Size(307, 205);
+            this.dgvDepartamento.Size = new System.Drawing.Size(410, 205);
             this.dgvDepartamento.TabIndex = 8;
             this.dgvDepartamento.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Seleccionar);
             // 

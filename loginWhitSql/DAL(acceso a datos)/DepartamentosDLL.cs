@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
 using loginWhitSql.BLL_logica_;
+using System.Collections;
 
 namespace loginWhitSql.DAL_acceso_a_datos_
 {
@@ -45,11 +46,16 @@ namespace loginWhitSql.DAL_acceso_a_datos_
             return conexion.EjecutarSentencia(sentencia);
         }
 
-        public int Eliminar(departamentoBLL odepartamentoBLL)
+        public bool Eliminar(departamentoBLL odepartamentoBLL)
         {
-            conexion.ejecutarComandosSinRetornos("DELETE FROM departamentos WHERE ID=" + odepartamentoBLL.ID);
+            string query = "DELETE FROM departamentos where Id = @ID"; 
+            MySqlCommand SqlComando = new MySqlCommand(query);
 
-            return 1; 
+
+            SqlComando.Parameters.Add("@ID", MySqlDbType.Int32).Value = odepartamentoBLL.ID;
+            return conexion.ejecutarComandosSinRetornos(SqlComando);
+
+           
         }
 
         public int Modificar(departamentoBLL odepartamentoBLL)

@@ -30,31 +30,50 @@
         {
             this.btnDpto = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
+            this.btnStock = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDpto
             // 
-            this.btnDpto.Location = new System.Drawing.Point(61, 32);
+            this.btnDpto.Image = global::loginWhitSql.Properties.Resources._299100_screwdriver_wrench_icon;
+            this.btnDpto.Location = new System.Drawing.Point(12, 56);
             this.btnDpto.Name = "btnDpto";
             this.btnDpto.Size = new System.Drawing.Size(112, 97);
             this.btnDpto.TabIndex = 0;
             this.btnDpto.Text = "Departamentos ";
+            this.btnDpto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDpto.UseVisualStyleBackColor = true;
+            this.btnDpto.Click += new System.EventHandler(this.btnDpto_Click);
             // 
             // btnEmpleados
             // 
-            this.btnEmpleados.Location = new System.Drawing.Point(206, 32);
+            this.btnEmpleados.Image = global::loginWhitSql.Properties.Resources._285641_id_user_icon;
+            this.btnEmpleados.Location = new System.Drawing.Point(248, 56);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(122, 97);
             this.btnEmpleados.TabIndex = 1;
             this.btnEmpleados.Text = "Empleados";
+            this.btnEmpleados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
+            // 
+            // btnStock
+            // 
+            this.btnStock.Image = global::loginWhitSql.Properties.Resources._211817_search_strong_icon__2___1_;
+            this.btnStock.Location = new System.Drawing.Point(130, 56);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(112, 97);
+            this.btnStock.TabIndex = 2;
+            this.btnStock.Text = "Stock";
+            this.btnStock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnStock.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 216);
+            this.ClientSize = new System.Drawing.Size(396, 224);
+            this.Controls.Add(this.btnStock);
             this.Controls.Add(this.btnEmpleados);
             this.Controls.Add(this.btnDpto);
             this.Name = "Form1";
@@ -67,6 +86,7 @@
 
         private System.Windows.Forms.Button btnDpto;
         private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.Button btnStock;
     }
 }
 
