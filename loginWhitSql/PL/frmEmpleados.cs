@@ -16,12 +16,19 @@ namespace loginWhitSql.PL_presentacion__
     public partial class frmEmpleados : Form
     {
         byte[] imagenByte;
-
+        EmpleadosDal oEmpleadosDal;
+              
         public frmEmpleados()
         {
+            oEmpleadosDal = new EmpleadosDal();
             InitializeComponent();
         }
 
+        
+
+
+
+        //Llenamos el combo con los datos 
         private void frmEmpleados_Load(object sender, EventArgs e)
         {
 
@@ -37,36 +44,16 @@ namespace loginWhitSql.PL_presentacion__
 
          }
 
-        private void btnExaminar_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog selectorImagen = new OpenFileDialog();
-
-            selectorImagen.Title = "seleccionar Imagen";
-
-            //Verifica si ya selecciono una foto 
-            if (selectorImagen.ShowDialog() == DialogResult.OK)
-            {
-                picFoto.Image = Image.FromStream(selectorImagen.OpenFile());
-                MemoryStream memoria = new MemoryStream();
-
-                picFoto.Image.Save(memoria, System.Drawing.Imaging.ImageFormat.Png); 
-
-
-                 imagenByte = memoria.ToArray();
-
-            }
-
-        }
+        
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            
 
-            RecolectarDatos();
-
-
+            oEmpleadosDal.Agregar(RecolectarDatos());
         }
-
-        private void RecolectarDatos()
+      
+        private empleadosBLL RecolectarDatos()
         {
             empleadosBLL objEmplados = new empleadosBLL();
 
@@ -88,8 +75,40 @@ namespace loginWhitSql.PL_presentacion__
 
             objEmplados.Departamento = departamentoIDD;
 
-            objEmplados.FotoEmpleado = imagenByte; 
+            objEmplados.FotoEmpleado = imagenByte;
 
+            return objEmplados; 
+
+
+        }
+
+        public void LlenarGrid()
+        {
+            dgvEmpleados.DataSource = oEmpleadosDal.MostrarEmpleados().Tables[0];
+
+            dgvEmpleados.Columns[0].HeaderText = "Id";
+            dgvEmpleados.Columns[1].HeaderText = "Nombre Departamento";
+
+        }
+
+        private void btnExaminar_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog selectorImagen = new OpenFileDialog();
+
+            selectorImagen.Title = "seleccionar Imagen";
+
+            //Verifica si ya selecciono una foto 
+            if (selectorImagen.ShowDialog() == DialogResult.OK)
+            {
+                picFoto.Image = Image.FromStream(selectorImagen.OpenFile());
+                MemoryStream memoria = new MemoryStream();
+
+                picFoto.Image.Save(memoria, System.Drawing.Imaging.ImageFormat.Png);
+
+
+                imagenByte = memoria.ToArray();
+
+            }
 
         }
     }

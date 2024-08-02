@@ -168,7 +168,7 @@
             this.btnExaminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExaminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExaminar.UseVisualStyleBackColor = true;
-            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
+            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click_1);
             // 
             // btnAgregar
             // 

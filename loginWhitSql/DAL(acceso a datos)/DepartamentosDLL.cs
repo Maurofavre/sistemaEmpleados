@@ -36,6 +36,8 @@ namespace loginWhitSql.DAL_acceso_a_datos_
             // Ejecutar el comando y devolver el resultado
             return conexion.ejecutarComandosSinRetornos(SqlComando);
         }
+
+
         //traer todo de la tabla de departamentos 
         public DataSet MostrarDepartamentos()
         {
@@ -45,6 +47,8 @@ namespace loginWhitSql.DAL_acceso_a_datos_
             // Ejecutar la sentencia y devolver el resultado
             return conexion.EjecutarSentencia(sentencia);
         }
+
+
 
         public bool Eliminar(departamentoBLL odepartamentoBLL)
         {
