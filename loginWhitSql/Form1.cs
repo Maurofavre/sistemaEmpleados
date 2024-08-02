@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using loginWhitSql.PL;
 using loginWhitSql.PL_presentacion__;
 
 namespace loginWhitSql
@@ -30,6 +31,13 @@ namespace loginWhitSql
             frmEmpleados formularioEmpleados = new frmEmpleados();
             formularioEmpleados.ShowDialog(); // Abre frmDepartamentos como modal
             //this.Hide();
+        }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            frmStock formularioStock = new frmStock();  
+            formularioStock.ShowDialog();
+
         }
     }
 }
