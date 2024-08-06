@@ -47,6 +47,7 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -173,7 +174,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Image = global::loginWhitSql.Properties.Resources._285657_floppy_guardar_save_icon__1_;
-            this.btnAgregar.Location = new System.Drawing.Point(269, 224);
+            this.btnAgregar.Location = new System.Drawing.Point(249, 224);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(86, 37);
             this.btnAgregar.TabIndex = 14;
@@ -185,7 +186,7 @@
             // btnModificar
             // 
             this.btnModificar.Image = global::loginWhitSql.Properties.Resources._285638_pencil_icon__1_;
-            this.btnModificar.Location = new System.Drawing.Point(361, 224);
+            this.btnModificar.Location = new System.Drawing.Point(341, 224);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(96, 37);
             this.btnModificar.TabIndex = 15;
@@ -196,38 +197,55 @@
             // btnBorrar
             // 
             this.btnBorrar.Image = global::loginWhitSql.Properties.Resources._299045_sign_error_icon__1___1_;
-            this.btnBorrar.Location = new System.Drawing.Point(473, 224);
+            this.btnBorrar.Location = new System.Drawing.Point(443, 224);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(91, 37);
             this.btnBorrar.TabIndex = 16;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Image = global::loginWhitSql.Properties.Resources._285688_file_empty_icon__1_;
-            this.btnCancelar.Location = new System.Drawing.Point(591, 224);
+            this.btnCancelar.Location = new System.Drawing.Point(540, 224);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 37);
             this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dgvEmpleados
             // 
+            this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Location = new System.Drawing.Point(39, 267);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.Size = new System.Drawing.Size(642, 212);
             this.dgvEmpleados.TabIndex = 18;
+            this.dgvEmpleados.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.seleccionar1);
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Image = global::loginWhitSql.Properties.Resources._285657_floppy_guardar_save_icon__1_;
+            this.btnFiltrar.Location = new System.Drawing.Point(636, 224);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(86, 37);
+            this.btnFiltrar.TabIndex = 19;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 491);
+            this.ClientSize = new System.Drawing.Size(736, 491);
+            this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.dgvEmpleados);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnBorrar);
@@ -278,5 +296,6 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvEmpleados;
+        private System.Windows.Forms.Button btnFiltrar;
     }
 }

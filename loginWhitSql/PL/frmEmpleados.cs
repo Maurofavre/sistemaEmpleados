@@ -17,15 +17,16 @@ namespace loginWhitSql.PL_presentacion__
     {
         byte[] imagenByte;
         EmpleadosDal oEmpleadosDal;
-              
+
         public frmEmpleados()
         {
             oEmpleadosDal = new EmpleadosDal();
             InitializeComponent();
+            llenarGrilla();
+            Limpiar();
+
         }
-
-        
-
+       
 
 
         //Llenamos el combo con los datos 
@@ -51,6 +52,10 @@ namespace loginWhitSql.PL_presentacion__
             
 
             oEmpleadosDal.Agregar(RecolectarDatos());
+            llenarGrilla(); 
+            Limpiar();
+            picFoto.Image = null;
+
         }
       
         private empleadosBLL RecolectarDatos()
@@ -77,19 +82,13 @@ namespace loginWhitSql.PL_presentacion__
 
             objEmplados.FotoEmpleado = imagenByte;
 
-            return objEmplados; 
+            return objEmplados;
+           
 
 
-        }
-
-        public void LlenarGrid()
-        {
-            dgvEmpleados.DataSource = oEmpleadosDal.MostrarEmpleados().Tables[0];
-
-            dgvEmpleados.Columns[0].HeaderText = "Id";
-            dgvEmpleados.Columns[1].HeaderText = "Nombre Departamento";
 
         }
+
 
         private void btnExaminar_Click_1(object sender, EventArgs e)
         {
@@ -109,7 +108,113 @@ namespace loginWhitSql.PL_presentacion__
                 imagenByte = memoria.ToArray();
 
             }
+        }
 
+
+       
+
+        public void llenarGrilla()
+        {
+            dgvEmpleados.DataSource = oEmpleadosDal.MostrarEmpleados().Tables[0];
+
+            dgvEmpleados.Columns[0].HeaderText = "Id";
+            dgvEmpleados.Columns[1].HeaderText = "Nombre";
+            dgvEmpleados.Columns[2].HeaderText = "Primer Ape";
+            dgvEmpleados.Columns[3].HeaderText = "Segundo Ape";
+            dgvEmpleados.Columns[4].HeaderText = "Correo";
+            dgvEmpleados.Columns[5].HeaderText = "Foto";
+
+
+
+        }
+
+        public void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            int valor;
+            if (int.TryParse(txtId.Text, out valor))
+            {
+                empleadosBLL oEmpleadosBll = new empleadosBLL();
+                oEmpleadosBll.ID = valor;
+
+                DataSet ds = oEmpleadosDal.Filtrar(oEmpleadosBll);
+
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    dgvEmpleados.DataSource = ds.Tables[0];
+
+                    dgvEmpleados.Columns[0].HeaderText = "Id";
+                    dgvEmpleados.Columns[1].HeaderText = "Nombre";
+                    dgvEmpleados.Columns[2].HeaderText = "Primer Ape";
+                    dgvEmpleados.Columns[3].HeaderText = "Segundo Ape";
+                    dgvEmpleados.Columns[4].HeaderText = "Correo";
+                    dgvEmpleados.Columns[5].HeaderText = "Foto";
+                    dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+                    byte[] imageBytes = (byte[])ds.Tables[0].Rows[0]["Foto"];
+                    picFoto.Image = ConvertirByteAImagen(imageBytes);
+
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron registros.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingresa un ID válido.");
+            }
+            Limpiar();
+        }
+
+        private Image ConvertirByteAImagen(byte[] imageBytes)
+        {
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
+
+        private void seleccionar1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int indice1 = e.RowIndex;
+
+            txtId.Text = dgvEmpleados.Rows[indice1].Cells[0].Value.ToString();
+            txtNombre.Text = dgvEmpleados.Rows[indice1].Cells[1].Value.ToString();
+            txtPrimerApellido.Text = dgvEmpleados.Rows[indice1].Cells[2].Value.ToString();
+            txtSengundoApellid.Text = dgvEmpleados.Rows[indice1].Cells[3].Value.ToString();
+            txtCorreo.Text = dgvEmpleados.Rows[indice1].Cells[4].Value.ToString();
+
+
+
+
+        }
+
+
+        public void Limpiar()
+        {
+            txtId.Clear();
+            txtCorreo.Clear();
+            txtNombre.Clear();
+            txtPrimerApellido.Clear();
+            txtSengundoApellid.Clear();
+            
+
+
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            oEmpleadosDal.Eliminar(RecolectarDatos());
+            llenarGrilla();
+            Limpiar();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            llenarGrilla();
+            Limpiar();
+            picFoto.Image = null;
         }
     }
 }

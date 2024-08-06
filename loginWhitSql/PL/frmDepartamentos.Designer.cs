@@ -134,6 +134,7 @@
             this.dgvDepartamento.Name = "dgvDepartamento";
             this.dgvDepartamento.Size = new System.Drawing.Size(410, 205);
             this.dgvDepartamento.TabIndex = 8;
+            this.dgvDepartamento.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartamento_CellContentClick);
             this.dgvDepartamento.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Seleccionar);
             // 
             // frmDepartamentos

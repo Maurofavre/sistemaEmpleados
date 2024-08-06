@@ -56,6 +56,18 @@ namespace loginWhitSql.DAL_acceso_a_datos_
         }
 
 
+    
+        public DataSet Filtrar(empleadosBLL oEmpleadosBll)
+        {
+            string query = "SELECT * FROM empleados WHERE Id = @ID";
+            MySqlCommand sqlComando = new MySqlCommand(query);
+
+            sqlComando.Parameters.Add("@ID", MySqlDbType.Int32).Value = oEmpleadosBll.ID;
+
+            return conexion.EjecutarSentencia(sqlComando); // Ajusta este método para devolver un DataSet
+        }
+
+
         public bool Eliminar(empleadosBLL oEmpleadosBll)
         {
             string query = "DELETE FROM empleados where Id = @ID";
@@ -67,9 +79,6 @@ namespace loginWhitSql.DAL_acceso_a_datos_
 
 
         }
-
-        
-
 
     }
 }

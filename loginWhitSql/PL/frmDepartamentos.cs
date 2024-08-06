@@ -127,5 +127,10 @@ namespace loginWhitSql.PL_presentacion__
             LimpiarEntradas();  
 
         }
+
+        private void dgvDepartamento_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
