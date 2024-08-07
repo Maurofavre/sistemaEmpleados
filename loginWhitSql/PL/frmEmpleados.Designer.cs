@@ -54,9 +54,9 @@
             // 
             // picFoto
             // 
-            this.picFoto.Location = new System.Drawing.Point(39, 25);
+            this.picFoto.Location = new System.Drawing.Point(39, 12);
             this.picFoto.Name = "picFoto";
-            this.picFoto.Size = new System.Drawing.Size(204, 193);
+            this.picFoto.Size = new System.Drawing.Size(232, 206);
             this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picFoto.TabIndex = 0;
             this.picFoto.TabStop = false;
@@ -133,21 +133,21 @@
             // 
             this.txtSengundoApellid.Location = new System.Drawing.Point(425, 93);
             this.txtSengundoApellid.Name = "txtSengundoApellid";
-            this.txtSengundoApellid.Size = new System.Drawing.Size(245, 20);
+            this.txtSengundoApellid.Size = new System.Drawing.Size(297, 20);
             this.txtSengundoApellid.TabIndex = 9;
             // 
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(280, 137);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(401, 20);
+            this.txtCorreo.Size = new System.Drawing.Size(442, 20);
             this.txtCorreo.TabIndex = 10;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(425, 41);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(245, 20);
+            this.txtNombre.Size = new System.Drawing.Size(297, 20);
             this.txtNombre.TabIndex = 11;
             // 
             // cmbDepartamento
@@ -155,7 +155,7 @@
             this.cmbDepartamento.FormattingEnabled = true;
             this.cmbDepartamento.Location = new System.Drawing.Point(280, 185);
             this.cmbDepartamento.Name = "cmbDepartamento";
-            this.cmbDepartamento.Size = new System.Drawing.Size(401, 21);
+            this.cmbDepartamento.Size = new System.Drawing.Size(442, 21);
             this.cmbDepartamento.TabIndex = 12;
             // 
             // btnExaminar
@@ -188,11 +188,12 @@
             this.btnModificar.Image = global::loginWhitSql.Properties.Resources._285638_pencil_icon__1_;
             this.btnModificar.Location = new System.Drawing.Point(341, 224);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(96, 37);
+            this.btnModificar.Size = new System.Drawing.Size(88, 37);
             this.btnModificar.TabIndex = 15;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnBorrar
             // 
@@ -220,11 +221,12 @@
             // 
             // dgvEmpleados
             // 
-            this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvEmpleados.AllowUserToAddRows = false;
+            this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Location = new System.Drawing.Point(39, 267);
             this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.Size = new System.Drawing.Size(642, 212);
+            this.dgvEmpleados.Size = new System.Drawing.Size(683, 280);
             this.dgvEmpleados.TabIndex = 18;
             this.dgvEmpleados.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.seleccionar1);
             // 
@@ -244,7 +246,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 491);
+            this.ClientSize = new System.Drawing.Size(770, 568);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.dgvEmpleados);
             this.Controls.Add(this.btnCancelar);

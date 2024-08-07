@@ -54,9 +54,28 @@ namespace loginWhitSql.DAL_acceso_a_datos_
 
 
         }
+        public int ModificarEmpl(empleadosBLL oEmpleadosBll)
+        {
+            string nombre = oEmpleadosBll.NombreEmpleado.Replace("'", "''");
+            string primerApellido = oEmpleadosBll.PrimerApellido.Replace("'", "''");
+            string segundoApellido = oEmpleadosBll.SegundoApellido.Replace("'", "''");
+            string correo = oEmpleadosBll.Correo.Replace("'", "''");
+
+            // Construcción de la consulta SQL con comas y espacios correctamente colocados
+            string query = "UPDATE empleados SET " +
+                           "nombre = '" + nombre + "', " +
+                           "primerapellido = '" + primerApellido + "', " +
+                           "segundoapellido = '" + segundoApellido + "', " +
+                           "correo = '" + correo + "' " +
+                           "WHERE ID = " + oEmpleadosBll.ID;
+
+            // Ejecutar el comando
+            conexion.ejecutarComandosSinRetornos(query);
+
+            return 1;
+        }
 
 
-    
         public DataSet Filtrar(empleadosBLL oEmpleadosBll)
         {
             string query = "SELECT * FROM empleados WHERE Id = @ID";

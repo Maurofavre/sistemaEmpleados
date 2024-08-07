@@ -111,8 +111,6 @@ namespace loginWhitSql.PL_presentacion__
         }
 
 
-       
-
         public void llenarGrilla()
         {
             dgvEmpleados.DataSource = oEmpleadosDal.MostrarEmpleados().Tables[0];
@@ -123,8 +121,6 @@ namespace loginWhitSql.PL_presentacion__
             dgvEmpleados.Columns[3].HeaderText = "Segundo Ape";
             dgvEmpleados.Columns[4].HeaderText = "Correo";
             dgvEmpleados.Columns[5].HeaderText = "Foto";
-
-
 
         }
 
@@ -148,11 +144,25 @@ namespace loginWhitSql.PL_presentacion__
                     dgvEmpleados.Columns[3].HeaderText = "Segundo Ape";
                     dgvEmpleados.Columns[4].HeaderText = "Correo";
                     dgvEmpleados.Columns[5].HeaderText = "Foto";
-                    dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    try
+                    {
+                        byte[] imageBytes = ds.Tables[0].Rows[0]["Foto"] as byte[];
+                        if (imageBytes != null && imageBytes.Length > 0)
+                        {
+                            picFoto.Image = ConvertirByteAImagen(imageBytes);
+                            picFoto.SizeMode = PictureBoxSizeMode.Zoom; // Ajusta el modo de tamaño de la imagen
+                        }
+                        else
+                        {
+                            picFoto.Image = null;
+                        }
 
-                    byte[] imageBytes = (byte[])ds.Tables[0].Rows[0]["Foto"];
-                    picFoto.Image = ConvertirByteAImagen(imageBytes);
-
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al convertir bytes a imagen: {ex.Message}");
+                        picFoto.Image = null;
+                    }   
                 }
                 else
                 {
@@ -178,16 +188,16 @@ namespace loginWhitSql.PL_presentacion__
         private void seleccionar1(object sender, DataGridViewCellMouseEventArgs e)
         {
             int indice1 = e.RowIndex;
+            dgvEmpleados.ClearSelection();
 
+            if (indice1 >= 0)
+            {
             txtId.Text = dgvEmpleados.Rows[indice1].Cells[0].Value.ToString();
             txtNombre.Text = dgvEmpleados.Rows[indice1].Cells[1].Value.ToString();
             txtPrimerApellido.Text = dgvEmpleados.Rows[indice1].Cells[2].Value.ToString();
             txtSengundoApellid.Text = dgvEmpleados.Rows[indice1].Cells[3].Value.ToString();
             txtCorreo.Text = dgvEmpleados.Rows[indice1].Cells[4].Value.ToString();
-
-
-
-
+            }
         }
 
 
@@ -199,8 +209,6 @@ namespace loginWhitSql.PL_presentacion__
             txtPrimerApellido.Clear();
             txtSengundoApellid.Clear();
             
-
-
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -215,6 +223,13 @@ namespace loginWhitSql.PL_presentacion__
             llenarGrilla();
             Limpiar();
             picFoto.Image = null;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            oEmpleadosDal.ModificarEmpl(RecolectarDatos());
+            llenarGrilla();
+            Limpiar();
         }
     }
 }
