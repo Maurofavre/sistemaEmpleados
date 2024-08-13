@@ -174,7 +174,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Image = global::loginWhitSql.Properties.Resources._285657_floppy_guardar_save_icon__1_;
-            this.btnAgregar.Location = new System.Drawing.Point(249, 224);
+            this.btnAgregar.Location = new System.Drawing.Point(257, 224);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(86, 37);
             this.btnAgregar.TabIndex = 14;
@@ -186,7 +186,7 @@
             // btnModificar
             // 
             this.btnModificar.Image = global::loginWhitSql.Properties.Resources._285638_pencil_icon__1_;
-            this.btnModificar.Location = new System.Drawing.Point(341, 224);
+            this.btnModificar.Location = new System.Drawing.Point(349, 224);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(88, 37);
             this.btnModificar.TabIndex = 15;
@@ -210,7 +210,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Image = global::loginWhitSql.Properties.Resources._285688_file_empty_icon__1_;
-            this.btnCancelar.Location = new System.Drawing.Point(540, 224);
+            this.btnCancelar.Location = new System.Drawing.Point(632, 224);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 37);
             this.btnCancelar.TabIndex = 17;
@@ -232,8 +232,8 @@
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Image = global::loginWhitSql.Properties.Resources._285657_floppy_guardar_save_icon__1_;
-            this.btnFiltrar.Location = new System.Drawing.Point(636, 224);
+            this.btnFiltrar.Image = global::loginWhitSql.Properties.Resources._211817_search_strong_icon__2___1_;
+            this.btnFiltrar.Location = new System.Drawing.Point(540, 224);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(86, 37);
             this.btnFiltrar.TabIndex = 19;

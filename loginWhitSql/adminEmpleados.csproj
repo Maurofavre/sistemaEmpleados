@@ -100,9 +100,11 @@
   <ItemGroup>
     <Compile Include="BLL\departamentoBLL.cs" />
     <Compile Include="BLL\empleadosBLL.cs" />
+    <Compile Include="BLL\stockBLL.cs" />
     <Compile Include="DAL%28acceso a datos%29\conexionDal.cs" />
     <Compile Include="DAL%28acceso a datos%29\DepartamentosDLL.cs" />
     <Compile Include="DAL%28acceso a datos%29\EmpleadosDal.cs" />
+    <Compile Include="DAL%28acceso a datos%29\StockDAL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +187,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\285641_id_user_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory_2825867.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory_2825867 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory_2825867 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\79732_paste_stock_icon %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

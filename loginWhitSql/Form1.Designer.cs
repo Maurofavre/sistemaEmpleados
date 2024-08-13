@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDpto = new System.Windows.Forms.Button();
-            this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnStock = new System.Windows.Forms.Button();
+            this.btnEmpleados = new System.Windows.Forms.Button();
+            this.btnDpto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnDpto
+            // btnStock
             // 
-            this.btnDpto.Image = global::loginWhitSql.Properties.Resources._299100_screwdriver_wrench_icon;
-            this.btnDpto.Location = new System.Drawing.Point(12, 56);
-            this.btnDpto.Name = "btnDpto";
-            this.btnDpto.Size = new System.Drawing.Size(112, 97);
-            this.btnDpto.TabIndex = 0;
-            this.btnDpto.Text = "Departamentos ";
-            this.btnDpto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnDpto.UseVisualStyleBackColor = true;
-            this.btnDpto.Click += new System.EventHandler(this.btnDpto_Click);
+            this.btnStock.Image = global::loginWhitSql.Properties.Resources._79732_paste_stock_icon__1_;
+            this.btnStock.Location = new System.Drawing.Point(130, 56);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(112, 97);
+            this.btnStock.TabIndex = 2;
+            this.btnStock.Text = "Stock";
+            this.btnStock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnStock.UseVisualStyleBackColor = true;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // btnEmpleados
             // 
@@ -57,17 +57,17 @@
             this.btnEmpleados.UseVisualStyleBackColor = true;
             this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
             // 
-            // btnStock
+            // btnDpto
             // 
-            this.btnStock.Image = global::loginWhitSql.Properties.Resources._211817_search_strong_icon__2___1_;
-            this.btnStock.Location = new System.Drawing.Point(130, 56);
-            this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(112, 97);
-            this.btnStock.TabIndex = 2;
-            this.btnStock.Text = "Stock";
-            this.btnStock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnStock.UseVisualStyleBackColor = true;
-            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
+            this.btnDpto.Image = global::loginWhitSql.Properties.Resources._299100_screwdriver_wrench_icon;
+            this.btnDpto.Location = new System.Drawing.Point(12, 56);
+            this.btnDpto.Name = "btnDpto";
+            this.btnDpto.Size = new System.Drawing.Size(112, 97);
+            this.btnDpto.TabIndex = 0;
+            this.btnDpto.Text = "Departamentos ";
+            this.btnDpto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDpto.UseVisualStyleBackColor = true;
+            this.btnDpto.Click += new System.EventHandler(this.btnDpto_Click);
             // 
             // Form1
             // 

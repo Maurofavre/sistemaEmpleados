@@ -24,11 +24,8 @@ namespace loginWhitSql.PL_presentacion__
             InitializeComponent();
             llenarGrilla();
             Limpiar();
-
         }
        
-
-
         //Llenamos el combo con los datos 
         private void frmEmpleados_Load(object sender, EventArgs e)
         {
@@ -41,21 +38,17 @@ namespace loginWhitSql.PL_presentacion__
             cmbDepartamento.DisplayMember = "departamento";
             //ValueMember ? 
             cmbDepartamento.ValueMember = "ID";
-
-
          }
 
         
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
-
             oEmpleadosDal.Agregar(RecolectarDatos());
             llenarGrilla(); 
-            Limpiar();
+            
             picFoto.Image = null;
-
+            Limpiar();
         }
       
         private empleadosBLL RecolectarDatos()
@@ -66,27 +59,19 @@ namespace loginWhitSql.PL_presentacion__
             //si tiene codigo lo usa, sino le pone 1 
             int.TryParse(txtId.Text, out codigoEmpleado);
 
-
             objEmplados.ID = codigoEmpleado;
             objEmplados.NombreEmpleado= txtNombre.Text;
             objEmplados.PrimerApellido = txtPrimerApellido.Text;
             objEmplados.SegundoApellido = txtSengundoApellid.Text;
             objEmplados.Correo=txtCorreo.Text;
 
-
             int departamentoIDD = 0;
 
             int.TryParse(cmbDepartamento.SelectedValue.ToString(), out departamentoIDD);
-
             objEmplados.Departamento = departamentoIDD;
-
             objEmplados.FotoEmpleado = imagenByte;
-
             return objEmplados;
            
-
-
-
         }
 
 
@@ -103,8 +88,6 @@ namespace loginWhitSql.PL_presentacion__
                 MemoryStream memoria = new MemoryStream();
 
                 picFoto.Image.Save(memoria, System.Drawing.Imaging.ImageFormat.Png);
-
-
                 imagenByte = memoria.ToArray();
 
             }
@@ -156,13 +139,12 @@ namespace loginWhitSql.PL_presentacion__
                         {
                             picFoto.Image = null;
                         }
-
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Error al convertir bytes a imagen: {ex.Message}");
                         picFoto.Image = null;
-                    }   
+                    }
                 }
                 else
                 {
@@ -176,6 +158,7 @@ namespace loginWhitSql.PL_presentacion__
             Limpiar();
         }
 
+
         private Image ConvertirByteAImagen(byte[] imageBytes)
         {
             using (MemoryStream ms = new MemoryStream(imageBytes))
@@ -183,7 +166,6 @@ namespace loginWhitSql.PL_presentacion__
                 return Image.FromStream(ms);
             }
         }
-
 
         private void seleccionar1(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -199,7 +181,6 @@ namespace loginWhitSql.PL_presentacion__
             txtCorreo.Text = dgvEmpleados.Rows[indice1].Cells[4].Value.ToString();
             }
         }
-
 
         public void Limpiar()
         {
